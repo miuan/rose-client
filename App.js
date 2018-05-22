@@ -9,12 +9,14 @@ import ApolloClient  from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+
+import Services from './Services'
 export default class App extends React.Component {
 
   constructor(...args){
     super(...args);
     this.client = new ApolloClient({
-      link: new HttpLink({uri:'https://api.graph.cool/simple/v1/cjb646u2r08sq0159u7r9hvu6'}),
+      link: new HttpLink({uri:'https://api.graph.cool/simple/v1/cjheviv534c3b0158hvmz4sde'}),
       cache: new InMemoryCache()
     });
   }
@@ -22,9 +24,7 @@ export default class App extends React.Component {
   render() {
     return (
       <ApolloProvider client={this.client}>
-        <View style={styles.container}>
-          <Text style={{color:'#fff'}}>AHOJ</Text>
-        </View>
+        <Services />
       </ApolloProvider>
     );
   }
@@ -52,12 +52,4 @@ export const Navigator = StackNavigator({
   Profile: { screen: App },
 });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    color: '#fff',
-    backgroundColor: '#222222',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
